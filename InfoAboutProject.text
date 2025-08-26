@@ -1,0 +1,87 @@
+                          ┌──────────────────────────┐
+                          │        FRONTEND          │
+                          │ React + Vite + Tailwind  │
+                          │ Firebase (Auth/Hosting)  │
+                          │ Firebase Storage (files) │
+                          └───────────┬──────────────┘
+                                      │
+                       REST + Firebase Calls (Axios/Fetch)
+                                      │
+                                      ▼
+                          ┌──────────────────────────┐
+                          │         BACKEND          │
+                          │ Node.js + Express        │
+                          │ Mongoose (ODM)           │
+                          └───────────┬──────────────┘
+                                      │
+     ┌────────────────────────────────┼───────────────────────────────────────┐
+     │                                │                                       │
+     ▼                                ▼                                       ▼
+┌───────────────┐            ┌──────────────────┐                   ┌───────────────────┐
+│   AUTH        │            │   USERS          │                   │   PROJECTS        │
+│ /api/auth     │            │ /api/users       │                   │ /api/projects     │
+│               │            │                  │                   │                   │
+│ • Login/Signup│            │ • Profile Mgmt   │                   │ • Create Project  │
+│ • JWT / Firebase            │ • Settings       │                   │ • Manage Members  │
+│   integration │            │ • Roles & Access │                   │ • Track Progress  │
+└───────────────┘            └──────────────────┘                   └───────────────────┘
+
+     ┌────────────────────────────────┼───────────────────────────────────────┐
+     │                                │                                       │
+     ▼                                ▼                                       ▼
+┌───────────────┐            ┌──────────────────┐                   ┌───────────────────┐
+│   TASKS       │            │   CHATS          │                   │   MEETINGS        │
+│ /api/tasks    │            │ /api/chats       │                   │ /api/meetings     │
+│               │            │                  │                   │                   │
+│ • CRUD Tasks  │            │ • Real-time Msgs │                   │ • Schedule Mtgs   │
+│ • Assign/Track│            │ • Team Channels  │                   │ • Calendar Sync   │
+│ • Deadlines   │            │ • Store Messages │                   │ • Reminders       │
+└───────────────┘            └──────────────────┘                   └───────────────────┘
+
+                                      │
+                                      ▼
+                          ┌──────────────────────────┐
+                          │     NOTIFICATIONS        │
+                          │ /api/notifications       │
+                          │ • Alerts & Updates       │
+                          │ • Task/Meeting Changes   │
+                          │ • User Mentions          │
+                          └──────────────────────────┘
+
+                                      │
+                                      ▼
+                          ┌──────────────────────────┐
+                          │        DATABASE          │
+                          │ MongoDB Atlas            │
+                          │ Collections:             │
+                          │  - Users                 │
+                          │  - Projects              │
+                          │  - Tasks                 │
+                          │  - Chats & Messages      │
+                          │  - Meetings              │
+                          │  - Notifications         │
+                          └──────────────────────────┘
+
+                          ┌──────────────────────────┐
+                          │   INTEGRATIONS (Future)  │
+                          │ • Firebase Hosting/CI-CD │
+                          │ • File uploads (Storage) │
+                          │ • Video calls (add-on)   │
+                          └──────────────────────────┘
+
+
+Frontend (React.js)
+Authentication: Login, Signup, Profile
+Dashboard for managing projects
+Project page with details & members
+Collaborative real-time code editor
+Live chat for team communication
+Routing via React Router
+API integration using Axios/Fetch
+
+Backend (Node.js + Express.js)
+JWT authentication + bcrypt password hashing
+REST APIs: Users, Projects, Chat, Code Collaboration
+WebSockets (Socket.io) for real-time code & chat sync
+MongoDB (Mongoose) for Users, Projects, Chat messages
+Middleware: express.json(), Auth checks, Error handling
